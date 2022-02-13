@@ -1,6 +1,7 @@
-n = "A37E"
+n = input("Inserir n° hexadecimal: ")
 
-# Letras
+# Valores númericos de A a F
+
 a=10
 b=11
 c=12
@@ -8,9 +9,9 @@ d = 13
 e = 14
 f = 15
 
+## Separando cada caractere
 
 l = []
-print("Antes:", l)
 
 t = len(n) ## Tamanho da string
 count = -1
@@ -18,11 +19,9 @@ while count < (t-1):
     count = count + 1
     l.append(n[count])
 
-print("Depois:", l)
+## Verificando e convertendo caracteres 
 
-## Verificando o caractere 
-
-listaHex = []
+listaHex = [] ## Recebe tanto números de 0 a 9 como letras convertidas de A a F para seu respectivo valor
 
 for k in range(0,len(l)):
     if l[k] == "0":
@@ -58,7 +57,7 @@ for k in range(0,len(l)):
     if l[k] == "F":
         listaHex.append(f)
 
-print("Lista de números hex.:", listaHex)
+## Operando cada número
 
 tHex = len(listaHex)
 base = tHex - 1 ## tHex - 1
@@ -69,21 +68,9 @@ while index < tHex:
     if base is not zero:
         base = base - 1
     index = index + 1
-        
 
+## Soma dos números
+    
+soma = sum(listaHex)
 
-'''
-tHex = len(listaHex) 
-base = (tHex - 1)
-
-index = 0
-
-while index < tHex:
-    listaHex[index] = listaHex[index]*16**base
-
-    index = index + 1
-    while base >= 0:
-        base = base - 1
-'''
-print("atual", listaHex)
-print(sum(listaHex))
+print("Decimal: {}".format(soma))
